@@ -4,6 +4,8 @@ import './App.css';
 import List from './day02/List';
 import Clock from './day02/Clock';
 import Student from './day02/Student';
+import Course from './day03/Course';
+import {BrowserRouter,Route,Link,Switch} from 'react-router-dom'
 // import List from './day01/List';
 // import UserInfo from './day01/UserInfo';
 
@@ -12,9 +14,20 @@ function App() {
   //day02代码
   return(
     <div className="App">
-      <Clock/>
-      <Student/>
-      {/* <List/> */}
+      <BrowserRouter>
+        <div className="nav">
+          <ul>
+            <li><Link to="/Student">学生管理</Link></li>
+            <li><Link to="/Course">课程管理</Link></li>
+          </ul>
+        </div>
+        <div className="content">
+          <Switch>
+            <Route path="/Student" component={Student}></Route>
+            <Route path="/Course" component={Course}></Route>
+          </Switch>
+        </div>
+      </BrowserRouter>
     </div>
   );
 
