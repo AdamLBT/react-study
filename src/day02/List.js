@@ -40,4 +40,5 @@ class List extends React.Component{
 
 }
 
+//暴露方法
 export default List;
