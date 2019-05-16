@@ -26,7 +26,7 @@ class Course extends React.Component{
     }
 
     loadTeachers(){
-        $.get("http://localhost:7777/teacher/findAll",(
+        $.get("http://localhost:8888/teacher/findAll",(
             {status,message,data})=>{
                 if(status === 200){
                     this.setState({
@@ -38,7 +38,7 @@ class Course extends React.Component{
     }
 
     loadCourses(){
-        $.get("http://localhost:7777/course/findAll",(
+        $.get("http://localhost:8888/course/findAll",(
             {status,message,data})=>{
                 if(status === 200){
                     //将查询数据设置到state中
@@ -56,7 +56,7 @@ class Course extends React.Component{
     }
 
     submitHandler = (event)=>{
-        let url = "http://localhost:7777/course/saveOrUpdate"
+        let url = "http://localhost:8888/course/saveOrUpdate"
         $.post(url,this.state.form,({message})=>{
             alert(message);
             //刷新,加载课程信息
@@ -69,7 +69,7 @@ class Course extends React.Component{
         //1.通过id查找课程操作
         //2.将返回结果设置到this.state.form中
         //state->form
-        $.get("http://localhost:7777/course/findById?id="+id,(
+        $.get("http://localhost:8888/course/findById?id="+id,(
             {status,message,data})=>{
                 if(status === 200){
                     //将查询数据设置到state中
@@ -135,25 +135,23 @@ class Course extends React.Component{
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            {
-                                courses.map((item) => {
-                                    return(
-                                        <tr key={item.id}>
-                                            <td><input type='checkbox' value={item.id}/></td>
-                                            <td>{item.name}</td>
-                                            <td>{item.credit}</td>
-                                            <td>{item.description}</td>
-                                            <td>{item.teacherId}</td>
-                                            <td>
-                                                <span>删除</span>
-                                                <span onClick={this.toUpdate.bind(this,item.id)}>更新</span>
-                                            </td>
-                                        </tr>
-                                    );
-                                })
-                            }
-                        </tr>
+                        {
+                            courses.map((item) => {
+                                return(
+                                    <tr key={item.id}>
+                                        <td><input type='checkbox' value={item.id}/></td>
+                                        <td>{item.name}</td>
+                                        <td>{item.credit}</td>
+                                        <td>{item.description}</td>
+                                        <td>{item.teacherId}</td>
+                                        <td>
+                                            <span>删除</span>
+                                            <span onClick={this.toUpdate.bind(this,item.id)}>更新</span>
+                                        </td>
+                                    </tr>
+                                );
+                            })
+                        } 
                     </tbody>
                 </table>
             </div>

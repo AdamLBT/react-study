@@ -5,6 +5,8 @@ import List from './day02/List';
 import Clock from './day02/Clock';
 import Student from './day02/Student';
 import Course from './day03/Course';
+import Teacher from './day03/Teacher';
+import StudentCourse from './day03/StudentCourse';
 import {BrowserRouter,Route,Link,Switch} from 'react-router-dom'
 // import List from './day01/List';
 // import UserInfo from './day01/UserInfo';
@@ -17,14 +19,18 @@ function App() {
       <BrowserRouter>
         <div className="nav">
           <ul>
-            <li><Link to="/Student">学生管理</Link></li>
-            <li><Link to="/Course">课程管理</Link></li>
+            <li><Link to="/student">学生管理</Link></li>
+            <li><Link to="/course">课程管理</Link></li>
+            <li><Link to="/teacher">教师管理</Link></li>
+            <li><Link to="/sc">选课管理</Link></li>
           </ul>
         </div>
         <div className="content">
           <Switch>
-            <Route path="/Student" component={Student}></Route>
-            <Route path="/Course" component={Course}></Route>
+            <Route path="/student" component={Student}></Route>
+            <Route path="/course" component={Course}></Route>
+            <Route path="/teacher" component={Teacher}></Route>
+            <Route path="/sc" component={StudentCourse}></Route>
           </Switch>
         </div>
       </BrowserRouter>
