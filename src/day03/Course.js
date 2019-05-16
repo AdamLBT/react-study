@@ -78,6 +78,15 @@ class Course extends React.Component{
         })
     }
 
+    toDelete(id){
+        $.get("http://localhost:8888/course/deleteById?id="+id,(
+            {status,message,data})=>{
+                if(status === 200){
+                    this.loadCourses();
+                }else{alert(message)}
+        })
+    }
+
     toAdd = ()=>{
         this.setState({
             flag : true,
@@ -145,7 +154,7 @@ class Course extends React.Component{
                                         <td>{item.description}</td>
                                         <td>{item.teacherId}</td>
                                         <td>
-                                            <span>删除</span>
+                                            <span onClick={this.toDelete.bind(this,item.id)}>删除</span>
                                             <span onClick={this.toUpdate.bind(this,item.id)}>更新</span>
                                         </td>
                                     </tr>
