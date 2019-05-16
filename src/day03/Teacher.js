@@ -28,6 +28,16 @@ class Teacher extends React.Component {
         })
     }
 
+    handleCancel =()=>{
+        this.setState({
+          visible:false
+        })
+      }
+
+    toAdd = ()=>{
+        this.setState({visible:true})
+    }
+
     render(){
         let columns = [
             {

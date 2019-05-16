@@ -78,7 +78,7 @@ class Course extends React.Component{
         })
     }
 
-    toAddd = ()=>{
+    toAdd = ()=>{
         this.setState({
             flag : true,
             form : {
@@ -119,7 +119,7 @@ class Course extends React.Component{
         return(
             <div>
                 <h2>课程管理</h2>
-                <button onClick={this.toAddd}>添加</button>
+                <button onClick={this.toAdd}>添加</button>
                 {/* 表单 */}
                 {JSON.stringify(form)}
                 {$form}

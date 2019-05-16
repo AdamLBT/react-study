@@ -48,7 +48,7 @@ class Student extends React.Component{
         let name = event.target.name;
         let value = event.target.value;
         //将获取的改变映射到状态里
-        this.state({
+        this.setState({
             form : {...this.state.form,...{[name]:value}}
         })
     }
@@ -83,24 +83,22 @@ class Student extends React.Component{
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            {
-                                students.map((item) => {
-                                    return(
-                                        <tr key={item.id}>
-                                            <td><input type='checkbox' value={item.id}/></td>
-                                            <td>{item.username}</td>
-                                            <td>{item.realname}</td>
-                                            <td>{item.gender}</td>
-                                            <td>
-                                                <span onClick={this.delStudent.bind(this,item.id)}>删除</span>
-                                                <span>更新</span>
-                                            </td>
-                                        </tr>
-                                    );
-                                })
-                            }
-                        </tr>
+                        {
+                            students.map((item) => {
+                                return(
+                                    <tr key={item.id}>
+                                        <td><input type='checkbox' value={item.id}/></td>
+                                        <td>{item.username}</td>
+                                        <td>{item.realname}</td>
+                                        <td>{item.gender}</td>
+                                        <td>
+                                            <span onClick={this.delStudent.bind(this,item.id)}>删除</span>
+                                            <span>更新</span>
+                                        </td>
+                                    </tr>
+                                );
+                            })
+                        }
                     </tbody>
                 </table>
             </div>
