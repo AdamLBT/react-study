@@ -7,7 +7,7 @@ import Student from './day02/Student';
 import Course from './day03/Course';
 import Teacher from './day03/Teacher';
 import StudentCourse from './day03/StudentCourse';
-import {BrowserRouter,Route,Link,Switch} from 'react-router-dom'
+import {BrowserRouter,Route,Link,Switch} from 'react-router-dom';
 // import List from './day01/List';
 // import UserInfo from './day01/UserInfo';
 
